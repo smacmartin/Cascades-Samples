@@ -135,7 +135,9 @@ Container *NineSliceRecipe::createControlPanel()
 void NineSliceRecipe::selectedRecipeChanged(int selected)
 {
     RadioGroup* myRadioGroup = dynamic_cast<RadioGroup*>(sender());
-    QString selectedName =  myRadioGroup->at(selected)->objectName();
+    QString selectedName;
+    if (myRadioGroup != 0) // always
+    	selectedName = myRadioGroup->at(selected)->objectName();
 
     // Change the text in TextArea depending on which option was selected.
     if (selectedName.compare("fast") == 0) {

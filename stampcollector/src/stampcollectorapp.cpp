@@ -81,8 +81,8 @@ void StampCollectorApp::onSelectionChanged(const QVariantList indexPath, bool se
 {
     if (selected) {
         // We use the sender to get the list view for accessing the data model and then the actual data.
-        if(sender()) {
-            ListView* stampList = dynamic_cast<ListView*>(sender());
+        ListView* stampList = dynamic_cast<ListView*>(sender());
+        if (stampList) {
             DataModel* stampModel = stampList->dataModel();
 
             // Update the content view context property so that it corresponds to

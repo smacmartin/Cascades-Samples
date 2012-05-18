@@ -213,7 +213,9 @@ Container *StockCurveRecipe::setUpRadioGroup(RadioGroup **radioGroup, QString co
 void StockCurveRecipe::playAnimForOption(int selected)
 {
     RadioGroup* myRadioGroup = dynamic_cast<RadioGroup*>(sender());
-    QString description =  myRadioGroup->at(selected)->property("name").toString();
+    QString description;
+    if (myRadioGroup != 0)
+    	description = myRadioGroup->at(selected)->property("name").toString();
 
     // Set the StockCurve name stored in the "name" property.
     mStockCurveDescription->setText(description);

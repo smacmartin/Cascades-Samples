@@ -81,6 +81,9 @@ void DropDownRecipe::onSelectedIndexChanged(int selectedIndex)
 }
 
 void DropDownRecipe::updateAmounts(DropDown *dropDown) {
+	if (dropDown == 0) // always
+		return;
+
     Option* selectedOption = dropDown->at(dropDown->selectedIndex());
     float numberOfPints = (selectedOption->value()).toFloat();
 

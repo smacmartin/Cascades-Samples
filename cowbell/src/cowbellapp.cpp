@@ -49,11 +49,13 @@ CowBellApp::CowBellApp()
 CowBellApp::~CowBellApp()
 {
     // Destroy the sound manager.
-    delete mSoundManager;
+    if (mSoundManager)
+    	delete mSoundManager;
 }
 
 void CowBellApp::playSound(const QString &msg)
 {
-    mSoundManager->play(msg);
+    if (mSoundManager)
+    	mSoundManager->play(msg);
 }
 

@@ -260,7 +260,8 @@ void CascadesCookbookApp::onSelectionChanged(const QVariantList indexPath, bool 
         if (recipe) {
             // Get the content Container of the ContentPage, remove the old recipe and add the new one.
             Container *content = dynamic_cast<Container *>(mContentPage->content());
-            content->removeAll();
+            if (content != 0) // always
+            	content->removeAll();
             recipe->setLayoutProperties(
                     DockLayoutProperties::create().horizontal(HorizontalAlignment::Center).vertical(
                             VerticalAlignment::Center));
